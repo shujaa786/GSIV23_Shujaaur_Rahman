@@ -31,6 +31,7 @@ const Home = observer((props: {value: string}): ReactElement => {
       if (typeof props.value === "string") {
         store.query = props.value
         store.page = 1
+        loadNextPage()
       }
     }, delay);
     return () => {
@@ -71,7 +72,6 @@ const Home = observer((props: {value: string}): ReactElement => {
     );
   };
 
-  console.log("store list",store.list)
   return (
     <div className={styles.root}>
       <Grid container justify="center">
