@@ -39,6 +39,7 @@ class Store implements MovieStore {
 }
 
 class Presenter implements MoviePresenter {
+    constructor() { }
     async loadNextPage(store: Store) {
         const text = store.query ? "search/movie" : "movie/upcoming"
         const data = await service.get(`${CONSTANTS.BASE_URL}${text}`, {
@@ -52,7 +53,6 @@ class Presenter implements MoviePresenter {
         store.page = data.page;
         store.totalPage = data.total_pages;
         store.total= data.total_results;
-        console.log("dta get", data);
     }
 }
 
